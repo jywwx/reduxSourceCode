@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 高阶函数的概念
+        // function fun(a, enhancer) {
+        //     if (enhancer) {
+        //         return enhancer(fun)(a)
+        //     }
+        //     return {
+        //         pow: a * a
+        //     }
+        // }
+
+        // function proxyfN(a) {
+        //     let result = fun(a)
+        //     return {...result,
+        //         a
+        //     }
+        // }
+
+        // function hoc(fn) {
+        //     return function(a) {
+        //         let result = fn(a)
+        //         return {...result,
+        //             a
+        //         }
+        //     }
+        // }
+
+        // console.log(fun(2))
+        // console.log(proxyfN(2))
+        // console.log(hoc(fun)(2))
+
+        // console.log(fun(2, hoc))
+
+
+
+        // 函数式编程下的组合概念
+
+        function add1(x) {
+            return x + 1
+        }
+
+        function mul2(x) {
+            return x * 2
+        }
+
+        console.log(mul2(add1(1)))
+
+
+        // function conpose(f, g) {
+        //     return function(x) {
+        //         return f(g(x))
+        //     }
+        // }
+        function compose(...funs) {
+            if (funs.length === 0) {
+                return arg => arg
+            }
+            if (funs.length === 1) {
+                return funs[0]
+            }
+            return funs.reduce((a, b) => (...args) => a(b(...args)))
+        }
+        console.log(conpose(mul2, add1)(1))
+    </script>
+</body>
+
+</html>
