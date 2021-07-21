@@ -2,7 +2,8 @@ const store = {
     state: {
         num: 0,
         index: 0,
-        index2:''
+        index2:'',
+        index3:5
     },
     add() {
         this.state.num = this.state.num + 1
