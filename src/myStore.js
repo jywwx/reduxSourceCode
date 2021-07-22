@@ -3,7 +3,10 @@ const store = {
         num: 0,
         num:1,
         num:5,
-        num:6
+        num:6,
+
+        commit:'测试soft提交',
+        commit:"测试mixed提交"
     },
     add() {
         this.state.num = this.state.num + 1
